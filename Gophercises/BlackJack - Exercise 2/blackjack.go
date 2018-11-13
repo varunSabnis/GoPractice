@@ -2,7 +2,7 @@ package main
 
 import (
        "fmt"
-       "github.com/varunSabnis/Gophercises/deck"
+       "github.com/varunSabnis/GoPractice/Gophercises/deck"
        "math/rand"
        "time"
        "os"
@@ -215,6 +215,7 @@ return(cardDeck)
 
 
 func main(){
+
   var i int
   card := deck.Card{}
   mycard := MyCard{card}
