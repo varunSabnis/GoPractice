@@ -17,11 +17,10 @@ myApp.controller('AngularJSCtrl', function($scope, $http) {
              url_list = []
              print(typeof(newsData))
              print(newsData)
-             /*
              newsData.forEach(function(newsObj){
                url_list.append(newsObj["Url"])
-             }) */
-           //print("url_list",url_list)
+             }) 
+           print("url_list",url_list)
           return(url_list)
         }
 });
