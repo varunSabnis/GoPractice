@@ -155,10 +155,18 @@ func main(){
         fmt.Println("not same",i)
       }
     }
-// Handler to display the single page having news url, time of execution
-  http.HandleFunc("/newsposts", func(w http.ResponseWriter, r *http.Request) {
-	//fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
-})
 
-log.Fatal(http.ListenAndServe(":3001", nil))
+// Handler to display the single page having news url, time of execution
+http.Handle("/", http.FileServer(http.Dir("./static")))
+
+
+http.HandleFunc("/getData", func(w http.ResponseWriter, r *http.Request)  {
+//fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
+data_resp,_ := json.Marshal(NewsList2)
+print("data_resp",data_resp)
+w.Header().Set("Content-Type", "application/json")
+w.Write(data_resp)
+
+})
+http.ListenAndServe(":3001", nil)
 }

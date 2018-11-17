@@ -1,0 +1,33 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+var myApp = angular.module('myApp',[]);
+myApp.controller('AngularJSCtrl', function($scope, $http) {
+   $scope.newsData = []
+   print("yo")
+   $scope.loadData = function(){
+             $http.get('http://localhost:3001/getData').then(function(data){
+                  print(data)
+                  $scope.newsData = data;
+             })
+        }
+        //call loadData when controller initialized
+  $scope.loadData();
+  $scope.getUrls = function(newsData){
+             url_list = []
+             print(typeof(newsData))
+             print(newsData)
+             /*
+             newsData.forEach(function(newsObj){
+               url_list.append(newsObj["Url"])
+             }) */
+           //print("url_list",url_list)
+          return(url_list)
+        }
+});
+</script>
+
+<table ng-app="myApp" ng-controller="AngularJSCtrl">
+  <tr ng-repeat = 'url in getUrls(newsData)'><a href={{url}}>{{url}}</a>
+  </tr>
+</table>

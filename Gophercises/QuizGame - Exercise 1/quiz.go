@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-  
+
    filename := flag.String("file","problems.csv","csv file containing question and answers")
    timelimit := flag.Int("timelimit",30,"time limit for the quiz")
    flag.Parse()
@@ -51,7 +51,7 @@ func main() {
               strings.Trim(ans," ")
               if(ans == record[1]){
                 correct_answer = correct_answer + 1
-          }
+               }
     }
 }
 
